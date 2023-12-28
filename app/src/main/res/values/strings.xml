@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Simple Calculator Data Binding</string>
+    <string name="empty_stack">____________________</string>
+</resources>

@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/darkbrown"
+        tools:context=".MainActivity">
+
+        <ListView
+            android:id="@+id/stackView"
+            android:layout_width="180dp"
+            android:layout_height="320dp"
+            android:background="@color/beige"
+            android:divider="#000000"
+            android:dividerHeight="0dp"
+            android:padding="0dp"
+            android:stackFromBottom="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/etNumber"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/beige"
+            android:ems="10"
+            android:hint="Enter a number here ..."
+            android:inputType="number"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@id/tlMemory"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TableLayout
+            android:id="@+id/tlMemory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/btnLeft"
+            app:layout_constraintStart_toStartOf="@id/btnLeft">
+            <TableRow
+                android:id="@+id/trMemoryB"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <include
+                    android:id="@+id/btnMem5"
+                    layout="@layout/memory_text"
+                    app:memoryText="@{`M5`}"/>
+                <include
+                    android:id="@+id/btnMem6"
+                    layout="@layout/memory_text"
+                    app:memoryText="@{`M6`}"/>
+                <include
+                    android:id="@+id/btnMem7"
+                    layout="@layout/memory_text"
+                    app:memoryText="@{`M7`}"/>
+                <include
+                    android:id="@+id/btnMem8"
+                    layout="@layout/memory_text"
+                    app:memoryText="@{`M8`}"/>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/trMemoryA"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <include
+                    android:id="@+id/btnMem1"
+                    layout="@layout/memory_text"
+                    app:memoryText="@{`M1`}"/>
+                <include
+                    android:id="@+id/btnMem2"
+                    layout="@layout/memory_text"
+                    app:memoryText="@{`M2`}"/>
+                <include
+                    android:id="@+id/btnMem3"
+                    layout="@layout/memory_text"
+                    app:memoryText="@{`M3`}"/>
+                <include
+                    android:id="@+id/btnMem4"
+                    layout="@layout/memory_text"
+                    app:memoryText="@{`M4`}"/>
+            </TableRow>
+        </TableLayout>
+
+        <Button
+            android:id="@+id/btnLeft"
+            style="@style/buttonLeft"
+            android:clickable="true"
+            android:text="\u00ab--"
+            app:layout_constraintBottom_toTopOf="@id/tlKeyboard"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btnRight"
+            style="@style/buttonRight"
+            android:clickable="true"
+            android:text="--\u00bb"
+            app:layout_constraintBottom_toTopOf="@id/tlKeyboard"
+            app:layout_constraintStart_toEndOf="@id/btnLeft" />
+
+        <TableLayout
+            android:id="@+id/tlEEX"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/tlKeyboard"
+            app:layout_constraintStart_toEndOf="@id/btnRight" >
+
+            <TableRow
+                android:id="@+id/trMEM"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <include
+                    android:id="@+id/btnMEM"
+                    layout="@layout/button_text"
+                    app:RightText="@{`RCL`}"
+                    app:buttonText="@{`MEM`}"
+                    app:leftText="@{`STO`}" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/trEEX"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <include
+                    android:id="@+id/btnEEX"
+                    layout="@layout/button_text"
+                    app:RightText="@{``}"
+                    app:buttonText="@{`EEX`}"
+                    app:leftText="@{``}" />
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:id="@+id/tlActions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TableRow
+                android:id="@+id/trActionsE"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <include
+                    android:id="@+id/btnAlpha"
+                    layout="@layout/button_text"
+                    app:RightText="@{``}"
+                    app:buttonText="@{`\u03b1`}"
+                    app:leftText="@{``}" />
+
+                <include
+                    android:id="@+id/btnChangeSign"
+                    layout="@layout/button_text"
+                    app:RightText="@{``}"
+                    app:buttonText="@{`+/-`}"
+                    app:leftText="@{``}" />
+
+                <include
+                    android:id="@+id/btnSqrt"
+                    layout="@layout/button_text"
+                    app:RightText="@{`x\u221ay`}"
+                    app:buttonText="@{`\u221a`}"
+                    app:leftText="@{`x^2`}" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/trActionsD"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <include
+                    android:id="@+id/btnMisc4"
+                    layout="@layout/button_text"
+                    app:RightText="@{``}"
+                    app:buttonText="@{``}"
+                    app:leftText="@{``}" />
+
+                <include
+                    android:id="@+id/btnOneDivX"
+                    layout="@layout/button_text"
+                    app:RightText="@{`ln`}"
+                    app:buttonText="@{`1/x`}"
+                    app:leftText="@{`e^x`}" />
+
+                <include
+                    android:id="@+id/btnYPowerX"
+                    layout="@layout/button_text"
+                    app:RightText="@{`log`}"
+                    app:buttonText="@{`y^x`}"
+                    app:leftText="@{`10^x`}" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/trActionsC"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <include
+                    android:id="@+id/btnMisc3"
+                    layout="@layout/button_text"
+                    app:RightText="@{``}"
+                    app:buttonText="@{``}"
+                    app:leftText="@{``}" />
+
+                <include
+                    android:id="@+id/btnAddition"
+                    layout="@layout/button_text"
+                    app:RightText="@{``}"
+                    app:buttonText="@{`+`}"
+                    app:leftText="@{``}" />
+
+                <include
+                    android:id="@+id/btnMultiply"
+                    layout="@layout/button_text"
+                    app:RightText="@{``}"
+                    app:buttonText="@{`*`}"
+                    app:leftText="@{``}" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/trActionsB"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <include
+                    android:id="@+id/btnMisc2"
+                    layout="@layout/button_text"
+                    app:RightText="@{``}"
+                    app:buttonText="@{``}"
+                    app:leftText="@{``}" />
+
+                <include
+                    android:id="@+id/btnSubtract"
+                    layout="@layout/button_text"
+                    app:RightText="@{``}"
+                    app:buttonText="@{`-`}"
+                    app:leftText="@{``}" />
+
+                <include
+                    android:id="@+id/btnDivision"
+                    layout="@layout/button_text"
+                    app:RightText="@{``}"
+                    app:buttonText="@{`/`}"
+                    app:leftText="@{``}" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/trActionsA"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <include
+                    android:id="@+id/btnMisc1"
+                    layout="@layout/button_text"
+                    app:RightText="@{``}"
+                    app:buttonText="@{``}"
+                    app:leftText="@{``}" />
+
+                <include
+                    android:id="@+id/btnEnter"
+                    layout="@layout/button_text"
+                    app:RightText="@{``}"
+                    app:buttonText="@{`enter`}"
+                    app:leftText="@{``}" />
+
+                <include
+                    android:id="@+id/btnDelete"
+                    layout="@layout/button_text"
+                    app:RightText="@{`clr`}"
+                    app:buttonText="@{`del`}"
+                    app:leftText="@{`drop`}" />
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:id="@+id/tlKeyboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TableRow
+                android:id="@+id/trKeysD"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <include
+                    android:id="@+id/btnKey7"
+                    layout="@layout/button_text"
+                    app:RightText="@{``}"
+                    app:buttonText="@{`7`}"
+                    app:leftText="@{``}" />
+
+                <include
+                    android:id="@+id/btnKey8"
+                    layout="@layout/button_text"
+                    app:RightText="@{``}"
+                    app:buttonText="@{`8`}"
+                    app:leftText="@{``}" />
+
+                <include
+                    android:id="@+id/btnKey9"
+                    layout="@layout/button_text"
+                    app:RightText="@{``}"
+                    app:buttonText="@{`9`}"
+                    app:leftText="@{``}" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/trKeysC"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <include
+                    android:id="@+id/btnKey4"
+                    layout="@layout/button_text"
+                    app:RightText="@{``}"
+                    app:buttonText="@{`4`}"
+                    app:leftText="@{``}" />
+
+                <include
+                    android:id="@+id/btnKey5"
+                    layout="@layout/button_text"
+                    app:RightText="@{``}"
+                    app:buttonText="@{`5`}"
+                    app:leftText="@{``}" />
+
+                <include
+                    android:id="@+id/btnKey6"
+                    layout="@layout/button_text"
+                    app:RightText="@{``}"
+                    app:buttonText="@{`6`}"
+                    app:leftText="@{``}" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/trKeysB"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <include
+                    android:id="@+id/btnKey1"
+                    layout="@layout/button_text"
+                    app:RightText="@{``}"
+                    app:buttonText="@{`1`}"
+                    app:leftText="@{``}" />
+
+                <include
+                    android:id="@+id/btnKey2"
+                    layout="@layout/button_text"
+                    app:RightText="@{``}"
+                    app:buttonText="@{`2`}"
+                    app:leftText="@{``}" />
+
+                <include
+                    android:id="@+id/btnKey3"
+                    layout="@layout/button_text"
+                    app:RightText="@{``}"
+                    app:buttonText="@{`3`}"
+                    app:leftText="@{``}" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/trKeysA"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <include
+                    android:id="@+id/btnKey0"
+                    layout="@layout/button_text"
+                    app:RightText="@{``}"
+                    app:buttonText="@{`0`}"
+                    app:leftText="@{``}" />
+
+                <include
+                    android:id="@+id/btnPeriod"
+                    layout="@layout/button_text"
+                    app:RightText="@{``}"
+                    app:buttonText="@{`.`}"
+                    app:leftText="@{``}" />
+
+                <include
+                    android:id="@+id/btnSpace"
+                    layout="@layout/button_text"
+                    app:RightText="@{``}"
+                    app:buttonText="@{`spc`}"
+                    app:leftText="@{``}" />
+            </TableRow>
+        </TableLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

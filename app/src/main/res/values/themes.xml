@@ -1,0 +1,7 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.SimpleCalculator2" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:buttonStyle">@style/buttonLarge</item>
+    </style>
+    <style name="Theme.SimpleCalculator2" parent="Base.Theme.SimpleCalculator2">
+    </style>
+</resources>
