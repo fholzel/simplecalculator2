@@ -15,6 +15,8 @@
 // buttons 1-3  :  48 dp
 // buttons 0.   :  48 dp
 
+// add comment for git testing
+
 package com.codecademy.simplecalculator2;
 
 import androidx.appcompat.app.AlertDialog;
